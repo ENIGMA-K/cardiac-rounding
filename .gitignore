@@ -1,4 +1,1 @@
-node_modules/
-dist/
-.DS_Store
-*.local
+# screenshots/&#10;*.png&#10;!public/icon-192.svg&#10;scripts/
