@@ -1,1 +1,9 @@
-# screenshots/&#10;*.png&#10;!public/icon-192.svg&#10;scripts/
+node_modules/
+dist/
+*.png
+!public/icon-192.svg
+*.js
+!vite.config.*
+screenshots/
+scripts/
+src/data/knowledge-base.json
