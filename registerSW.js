@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/cardiac-rounding/sw.js', { scope: '/cardiac-rounding/' })})}
