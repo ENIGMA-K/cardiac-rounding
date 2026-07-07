@@ -37,6 +37,7 @@ export default defineConfig({
     }),
   ],
   resolve: { alias: { '@': path.resolve(__dirname, './src'), '@data': path.resolve(__dirname, './src/data') } },
+  base: '/cardiac-rounding/',
   build: { target: 'esnext' },
   server: { port: 5173, open: false, host: '0.0.0.0' },
 });
