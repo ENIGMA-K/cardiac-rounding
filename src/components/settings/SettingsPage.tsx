@@ -59,7 +59,7 @@ export function SettingsPage() {
         <h4 className="font-ui text-sm font-semibold text-[var(--color-text)] mb-2">服务器地址</h4>
         <p className="text-xs text-[var(--color-text-muted)] mb-1">IP 变化时输入新地址，点"更新"重新加载</p>
         <div className="flex gap-2">
-          <input id="serverUrl" defaultValue={window.location.origin} className="font-data text-sm flex-1" />
+          <input id="serverUrl" defaultValue="https://enigma-k.github.io/cardiac-rounding" className="font-data text-sm flex-1" />
           <Button size="sm" variant="outline" onClick={() => { navigator.clipboard.writeText(window.location.origin); addToast('已复制', 'info'); }}>复制</Button>
           <Button size="sm" onClick={() => { const el = document.getElementById('serverUrl') as HTMLInputElement; if (el?.value) window.location.href = el.value; }}>更新</Button>
         </div>
