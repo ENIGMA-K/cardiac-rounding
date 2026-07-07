@@ -46,7 +46,9 @@ export function sortByBedNumber(patients: Patient[]): Patient[] {
 
 export function getDoctorColor(name: string): string {
   let h = 0; for (let i = 0; i < name.length; i++) h = ((h << 5) - h) + name.charCodeAt(i); h |= 0;
-  return `hsl(${Math.abs(h) % 360}, 70%, 65%)`;
+  // Golden ratio conjugate for max hue spread
+  const hue = (Math.abs(h) * 0.618033988749895 * 360) % 360;
+  return `hsl(${hue}, 80%, 60%)`;
 }
 
 export interface PhaseDays { label: string; days: number; }
