@@ -44,8 +44,10 @@ export function sortByBedNumber(patients: Patient[]): Patient[] {
   });
 }
 
-const DC = ['#4f8ef7','#a78bfa','#34d399','#fbbf24','#f87171','#60a5fa','#fb923c','#f472b6','#818cf8','#2dd4bf'];
-export function getDoctorColor(name: string): string { let h=0;for(let i=0;i<name.length;i++)h=((h<<5)-h)+name.charCodeAt(i);h|=0;return DC[Math.abs(h)%DC.length]; }
+export function getDoctorColor(name: string): string {
+  let h = 0; for (let i = 0; i < name.length; i++) h = ((h << 5) - h) + name.charCodeAt(i); h |= 0;
+  return `hsl(${Math.abs(h) % 360}, 70%, 65%)`;
+}
 
 export interface PhaseDays { label: string; days: number; }
 
