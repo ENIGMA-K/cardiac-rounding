@@ -1,0 +1,11 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { usePatientStore } from '@/store/patientStore';
+const phaseOrder = ['pre-op', 'surgery-day', 'post-op-icu', 'post-op-ward-monitor', 'post-op-ward', 'transfer', 'discharged'];
+const phaseLabels = { 'pre-op': '术前', 'surgery-day': '手术日', 'post-op-icu': '术后监护', 'post-op-ward-monitor': '病房监护', 'post-op-ward': '术后病房', 'transfer': '转出', 'discharged': '已出院' };
+export function StatsBar() {
+    const patients = usePatientStore((s) => s.patients);
+    const counts = phaseOrder.map((phase) => ({
+        phase, label: phaseLabels[phase], count: patients.filter((p) => p.phase === phase).length,
+    }));
+    return (_jsx("div", { className: "flex flex-wrap gap-2 mb-3", children: counts.map(({ phase, label, count }) => (_jsxs("span", { className: "font-ui inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)]", children: [_jsx("span", { className: "w-2 h-2 rounded-full", style: { backgroundColor: `var(--phase-${phase})` } }), label, " ", _jsx("span", { className: "font-semibold text-[var(--color-text)]", children: count })] }, phase))) }));
+}
