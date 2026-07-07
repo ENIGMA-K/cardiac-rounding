@@ -26,7 +26,7 @@ export const db = new CardiacDB();
 
 export async function exportAllData(): Promise<string> {
   const data = {
-    app: 'cardiac-rounding', version: '1.0.0',
+    app: 'cardiac-rounding', version: '2.0.0',
     exportedAt: new Date().toISOString(),
     patients: await db.patients.toArray(),
     roundingRecords: await db.roundingRecords.toArray(),
